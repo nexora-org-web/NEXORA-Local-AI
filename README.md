@@ -1,4 +1,4 @@
-# NEXORA Local AI
+# NEXORA Local AI(https://nexora-org-web.github.io/NEXORA-Local-AI/index.html)
 
 Run a small AI model (Gemma 3 270M) on your own PC or from a USB drive.
 No internet needed after setup, no message limits, nothing leaves your computer.
