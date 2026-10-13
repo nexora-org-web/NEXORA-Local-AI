@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXORA Local AI - Portable Offline AI</title>
+  <meta name="description" content="Run a small AI model (Gemma 3 270M) on your own PC or from a USB drive. No internet needed after setup, no message limits, nothing leaves your computer.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+
+  <header class="topbar">
+    <a class="brand" href="index.html">NEXORA <span>Local AI</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="overlay" id="overlay"></div>
+  <nav class="drawer" id="drawer" aria-label="Main menu">
+    <a href="index.html" class="active">Home</a>
+    <a href="setup.html">Quick Setup Guide</a>
+    <a href="https://github.com/nexora-org-web/NEXORA-local-AI" target="_blank" rel="noopener">Open Source (GitHub)</a>
+    <a href="licenses.html">Licenses</a>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <span class="badge fade-in">PORTABLE &bull; OFFLINE &bull; PRIVATE</span>
+      <h1 class="fade-in d1">Your own AI,<br><span class="neon">on a USB drive.</span></h1>
+      <p class="lead fade-in d2">
+        NEXORA Local AI runs a small AI model (Gemma 3 270M) directly on your PC.
+        No internet needed after setup, no message limits, and nothing ever leaves your computer.
+      </p>
+
+      <div class="btn-wrap slideup">
+        <a class="btn" href="https://github.com/user-attachments/files/33340325/Portable.Local.Ai.By.NEXORA.zip" download>
+          &#11015; Download ZIP
+        </a>
+        <p class="btn-note">Windows &bull; Portable.Local.Ai.By.NEXORA.zip</p>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card reveal">
+        <div class="icon">&#128274;</div>
+        <h3>100% Private</h3>
+        <p>Everything runs on your computer. Your chats are never sent to any server.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon">&#9889;</div>
+        <h3>Fast &amp; Lightweight</h3>
+        <p>Gemma 3 270M is tiny, so it is quick on almost any PC. Answers are basic, but it is instant.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon">&#128190;</div>
+        <h3>USB Portable</h3>
+        <p>Extract the folder anywhere, even a USB drive, and carry your AI with you.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon">&#128279;</div>
+        <h3>Open Source</h3>
+        <p>Built on llama.cpp. Swap in larger GGUF models (1B-4B) with the same setup.</p>
+      </article>
+    </section>
+
+    <section class="reveal" style="margin-top:56px;text-align:center;">
+      <h2>Ready in minutes</h2>
+      <p style="color:var(--muted);margin-bottom:22px;">Extract, run <code>setup.bat</code> once, then <code>start.bat</code>.</p>
+      <a class="btn ghost" href="setup.html">View Quick Setup Guide &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="https://github.com/nexora-org-web/Nexora-Official" target="_blank" rel="noopener">&copy;NEXORA</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
