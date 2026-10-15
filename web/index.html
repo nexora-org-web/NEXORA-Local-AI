@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<title>NEXORA Local AI</title>
+<style>
+:root{color-scheme:dark;--bg:#090d18;--panel:#11182a;--panel2:#151f35;--line:#27334c;--text:#eef3ff;--muted:#9aa9c5;--accent:#8b7cff;--accent2:#4de0c1}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#1a2450 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.5 Inter,Segoe UI,Arial,sans-serif;min-height:100vh}
+.app{display:grid;grid-template-columns:270px 1fr;min-height:100vh;max-width:1600px;margin:auto}.side{padding:26px 18px;border-right:1px solid var(--line);background:#0b1120cc;display:flex;flex-direction:column;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:19px;letter-spacing:.3px}.logo{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#08101d;font-weight:900;font-size:20px;box-shadow:0 8px 28px #7166ff44}
+.small{font-size:12px;color:var(--muted)}.new{width:100%;padding:12px;border:1px solid #4b4e86;background:#1b2140;color:#fff;border-radius:12px;font-weight:700;cursor:pointer}.card{padding:14px;border:1px solid var(--line);border-radius:14px;background:#11182a99}.card h3{margin:0 0 7px;font-size:13px}.card p{margin:0;color:var(--muted);font-size:12px}.status{display:flex;align-items:center;gap:8px;color:#9df4d8;font-size:12px}.dot{width:8px;height:8px;border-radius:50%;background:#4de0c1;box-shadow:0 0 12px #4de0c1}
+.side footer{margin-top:auto;color:var(--muted);font-size:11px;overflow-wrap:anywhere}.side a{color:#aeb7ff;text-decoration:none}
+main{display:flex;flex-direction:column;min-width:0;height:100vh}.top{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 30px;border-bottom:1px solid var(--line);background:#090d18aa;backdrop-filter:blur(12px)}.top h1{font-size:16px;margin:0}.pill{font-size:11px;color:#aef7e4;border:1px solid #2b786e;padding:5px 9px;border-radius:30px;background:#102b2a}
+.content{flex:1;overflow:auto;padding:35px 20px 18px}.inner{max-width:850px;margin:0 auto}.welcome{text-align:center;padding:30px 0 22px}.orb{width:68px;height:68px;border-radius:23px;margin:0 auto 20px;background:linear-gradient(135deg,#8b7cff,#4de0c1);display:grid;place-items:center;color:#0a1120;font-size:29px;font-weight:900;box-shadow:0 12px 45px #756cff30}.welcome h2{font-size:clamp(25px,4vw,37px);line-height:1.15;margin:0 0 12px;letter-spacing:-.7px}.welcome p{color:var(--muted);margin:0 auto;max-width:500px}.suggestions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0 28px}.suggestion{text-align:left;border:1px solid var(--line);background:#11182acc;color:var(--text);border-radius:14px;padding:15px;cursor:pointer;transition:.2s}.suggestion:hover{border-color:#7770de;transform:translateY(-2px)}.suggestion strong{display:block;font-size:13px;margin-bottom:4px}.suggestion span{font-size:12px;color:var(--muted)}
+.messages{display:flex;flex-direction:column;gap:20px;padding-bottom:20px}.message{display:flex;gap:12px;align-items:flex-start}.avatar{flex:0 0 34px;height:34px;border-radius:11px;background:#252b49;display:grid;place-items:center;font-size:12px;font-weight:800}.message.user .avatar{background:#2b725f;color:#d8fff4}.bubble{min-width:0;max-width:100%;padding:12px 15px;border:1px solid var(--line);background:#11182a;border-radius:4px 15px 15px 15px;white-space:pre-wrap;overflow-wrap:anywhere}.message.user .bubble{background:#171e35;border-color:#303d5e}.message .who{font-size:11px;color:var(--muted);margin-bottom:5px}.typing{color:var(--muted);font-style:italic}
+.composer-wrap{padding:14px 20px 20px;border-top:1px solid var(--line);background:#090d18eF}.composer{max-width:850px;margin:auto;border:1px solid #35415f;background:#121a2c;border-radius:17px;padding:10px;box-shadow:0 12px 40px #0003}.composer textarea{display:block;width:100%;resize:vertical;min-height:48px;max-height:180px;border:0;outline:0;background:transparent;color:var(--text);font:inherit;padding:8px 10px}.composer-bottom{display:flex;align-items:center;justify-content:space-between;padding:4px 3px 0 10px}.hint{font-size:11px;color:var(--muted)}.actions{display:flex;gap:8px}.clear,.send{border:1px solid var(--line);border-radius:10px;padding:9px 13px;cursor:pointer;color:var(--text);background:#1b2439}.send{background:linear-gradient(135deg,#8b7cff,#6e8cff);color:white;border:0;font-weight:800;min-width:78px}.send:disabled{opacity:.45;cursor:wait}
+@media(max-width:760px){.app{grid-template-columns:1fr}.side{display:none}.top{padding:0 18px}.content{padding:20px 14px}.welcome{padding-top:20px}.suggestions{grid-template-columns:1fr}.composer-wrap{padding:12px}.hint{max-width:180px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+  <div class="brand"><div class="logo">N</div><div>NEXORA<div class="small">LOCAL INTELLIGENCE</div></div></div>
+  <button class="new" id="newChat">＋ &nbsp; New conversation</button>
+  <div class="card"><h3>Local by design</h3><p>Your prompts are processed by the model running on this computer. No cloud AI API is used.</p></div>
+  <div class="card"><h3>Model</h3><p>Qwen2.5-Coder-0.5B-Instruct-heretic<br>Q4_K_M · Local inference</p></div>
+  <div class="status"><span class="dot"></span><span id="statusText">Connecting to local model…</span></div>
+  <footer>©NEXORA<br><a href="https://github.com/nexora-org-web/Nexora-Official" target="_blank" rel="noreferrer">NEXORA Official</a><br><a href="https://github.com/nexora-org-web/NEXORA-Local-AI" target="_blank" rel="noreferrer">GitHub Repository</a><br><br>Offline after setup. Model responses may be inaccurate.</footer>
+</aside>
+<main>
+  <header class="top"><h1>AI Workspace</h1><span class="pill">● LOCAL MODE</span></header>
+  <section class="content" id="content"><div class="inner">
+    <div class="welcome" id="welcome"><div class="orb">N</div><h2>Your ideas, locally.</h2><p>A private AI chat that runs on your own computer. Ask a question, explore an idea, or get help with code.</p></div>
+    <div class="suggestions" id="suggestions">
+      <button class="suggestion" data-prompt="Explain a difficult topic in simple words."><strong>✦ Learn something</strong><span>Explain a difficult topic simply</span></button>
+      <button class="suggestion" data-prompt="Help me debug this code. Ask me to paste the code if needed."><strong>⌘ Code assistant</strong><span>Debug, explain, or write code</span></button>
+      <button class="suggestion" data-prompt="Help me make a realistic study plan for this week."><strong>◦ Plan my week</strong><span>Turn goals into clear next steps</span></button>
+      <button class="suggestion" data-prompt="Give me five creative project ideas I can build on a computer."><strong>✧ Explore ideas</strong><span>Find a fresh idea to start with</span></button>
+    </div>
+    <div class="messages" id="messages"></div>
+  </div></section>
+  <div class="composer-wrap"><form class="composer" id="chatForm"><textarea id="prompt" placeholder="Message NEXORA Local AI…" rows="2" required></textarea><div class="composer-bottom"><span class="hint">Enter to send · Shift + Enter for a new line</span><div class="actions"><button class="clear" type="button" id="clearChat">Clear</button><button class="send" id="sendBtn" type="submit">Send ↑</button></div></div></form></div>
+</main>
+</div>
+<script>
+const form=document.getElementById('chatForm'), input=document.getElementById('prompt'), messagesEl=document.getElementById('messages');
+const sendBtn=document.getElementById('sendBtn'), statusText=document.getElementById('statusText');
+let history=[];
+function addMessage(role,text){const row=document.createElement('div');row.className='message '+role;const avatar=document.createElement('div');avatar.className='avatar';avatar.textContent=role==='user'?'YOU':'N';const wrap=document.createElement('div');wrap.style.minWidth='0';const who=document.createElement('div');who.className='who';who.textContent=role==='user'?'You':'NEXORA';const bubble=document.createElement('div');bubble.className='bubble';bubble.textContent=text;wrap.append(who,bubble);row.append(avatar,wrap);messagesEl.append(row);document.getElementById('content').scrollTop=document.getElementById('content').scrollHeight;return bubble;}
+async function checkServer(){try{const r=await fetch('/health');if(!r.ok)throw Error();statusText.textContent='Local model server online';}catch(e){statusText.textContent='Waiting for local model…';}}
+form.addEventListener('submit',async e=>{e.preventDefault();const text=input.value.trim();if(!text||sendBtn.disabled)return;document.getElementById('welcome').style.display='none';document.getElementById('suggestions').style.display='none';addMessage('user',text);history.push({role:'user',content:text});input.value='';sendBtn.disabled=true;sendBtn.textContent='…';const bubble=addMessage('assistant','Thinking…');bubble.classList.add('typing');
+try{const res=await fetch('/v1/chat/completions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history,temperature:0.7,max_tokens:512,stream:false})});if(!res.ok)throw Error('Local server returned HTTP '+res.status);const data=await res.json();const answer=data.choices?.[0]?.message?.content?.trim()||'No response was returned.';bubble.classList.remove('typing');bubble.textContent=answer;history.push({role:'assistant',content:answer});statusText.textContent='Local model server online';}catch(err){bubble.classList.remove('typing');bubble.textContent='Could not get a response from the local model. Make sure the server window is still open, then try again. Details: '+err.message;history.pop();}finally{sendBtn.disabled=false;sendBtn.textContent='Send ↑';input.focus();document.getElementById('content').scrollTop=document.getElementById('content').scrollHeight;}});
+input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();form.requestSubmit();}});
+document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>{input.value=b.dataset.prompt;input.focus();}));
+function clearChat(){history=[];messagesEl.replaceChildren();document.getElementById('welcome').style.display='block';document.getElementById('suggestions').style.display='grid';input.focus();}
+document.getElementById('newChat').addEventListener('click',clearChat);document.getElementById('clearChat').addEventListener('click',clearChat);
+checkServer();
+</script>
+</body>
+</html>
