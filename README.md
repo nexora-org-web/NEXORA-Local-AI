@@ -1,50 +1,53 @@
 # NEXORA Local AI
 
-Run a small AI model (Gemma 3 270M) on your own PC or from a USB drive.
-No internet needed after setup, no message limits, nothing leaves your computer.
-## Download All Files In Zip - https://github.com/user-attachments/files/33340325/Portable.Local.Ai.By.NEXORA.zip
+Run a small AI model (Qwen2.5-Coder-0.5B-Instruct-heretic) on your own Windows PC or from a USB drive.
 
-## Quick start (Windows)
+- No internet needed after setup.
+- No message limits imposed by a cloud AI service.
+- AI inference runs locally on your computer.
+- Your prompts are not sent to a cloud AI API.
 
-1. Extract this folder anywhere (a USB drive works too).
-2. Double-click `setup.bat` **once** (needs internet). It downloads the engine and the model.
-   - Skip this step if the release you downloaded already includes `bin/` and `models/` files.
-3. Double-click `start.bat`, then press **ENTER**.
-4. When the window says the server is listening, open this in your browser:
+## Download All Files in ZIP
 
-   **http://127.0.0.1:8080**
+Get the complete project from the NEXORA GitHub repository:
 
-5. Chat. Close the terminal window to stop the AI.
+https://github.com/nexora-org-web/NEXORA-Local-AI
 
-> The address is `http://`, not `https://`. This is normal for a local app and is private to your computer.
+## Quick Start (Windows)
 
-## Folder layout
+1. Extract the ZIP file anywhere on your computer. A USB drive works too.
 
-```
-NexoraAI/
-├── start.bat      <- run the AI
-├── setup.bat      <- one-time download of engine + model
-├── bin/           <- llama.cpp (llama-server.exe and DLLs)
-└── models/        <- gemma-3-270m-it-Q8_0.gguf
-```
+2. Double-click `setup.bat` while connected to the internet.
 
-## Manual download (if setup.bat fails)
+3. Read the instructions displayed in the terminal. Press `Y`, then `ENTER`, to begin setup.
 
-- Engine: https://github.com/ggml-org/llama.cpp/releases - download the `win-cpu-x64` zip and extract everything into `bin/`.
-- Model: https://huggingface.co/ggml-org/gemma-3-270m-it-GGUF - download `gemma-3-270m-it-Q8_0.gguf` into `models/`.
+4. The setup script downloads the llama.cpp runtime and the Qwen model automatically.
 
-## Notes
+5. Wait until the terminal displays `[COMPLETED]`.
 
-- Gemma 3 270M is tiny. It is fast on any PC, but its answers are basic. Larger GGUF models (1B-4B) work with the same setup: put the file in `models/` and edit the filename in `start.bat`.
-- The default model has built-in safety tuning. Other community GGUF models may behave differently; check each model's license and quality yourself.
-- To use another port, change `8080` in `start.bat`.
-- Linux/macOS: use the matching llama.cpp build and run `llama-server -m models/<file>.gguf --port 8080`.
+6. Double-click `start.bat`.
 
-## Licenses
+7. Your default browser should open the NEXORA Local AI chat interface automatically.
 
-- llama.cpp: MIT License - https://github.com/ggml-org/llama.cpp
-- Gemma: use is subject to the Gemma Terms of Use and Prohibited Use Policy - https://ai.google.dev/gemma/terms
-  If you redistribute the model file, include these terms.
+   If it does not, open this address manually:
+
+   **http://127.0.0.1:8080/index.html**
+
+8. Start chatting!
+
+Keep the terminal window open while using the AI. Press `Ctrl+C` in that window to stop the server.
+
+> The address uses `http://`, not `https://`. This is normal for a local application. The server listens on `127.0.0.1`, so it is intended to be accessible only from your own computer.
+
+## Folder Layout
+
+```text
+NEXORA-Local-AI/
+├── setup.bat       <- Downloads the AI runtime and model
+├── start.bat       <- Starts the local AI server and opens the browser
+├── README.txt      <- Instructions and documentation
+└── web/
+    └── index.html  <- Modern NEXORA AI chat interface
 
 ---
 
